@@ -3,8 +3,16 @@
 require 'yaml'
 require 'colorize'
 
-filename = ARGV[0]
-pattern_text = ARGV[1]
+filename, pattern_text = if ARGV.length == 2
+  ARGV
+elsif ARGV.length == 1
+  [
+    "/Users/sergio/projects/textmaster/textmaster-root/services/TextMaster.com/config/locales/xx-XX.yml",
+    ARGV[0],
+  ]
+else
+  []
+end
 
 unless filename && pattern_text
   puts "Usage: grep_yaml.rb filename pattern"
@@ -12,7 +20,7 @@ unless filename && pattern_text
 end
 
 pattern = Regexp.new(pattern_text, :nocase)
-p pattern
+# p pattern
 
 hash = YAML.load_file(filename)
 
