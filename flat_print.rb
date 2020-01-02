@@ -5,7 +5,7 @@ require 'yaml'
 filename = if ARGV.length == 1
   ARGV[0]
 elsif ARGV.length == 0
-  "/Users/sergio/projects/textmaster/textmaster-root/services/textmaster.com/config/locales/new.yml"
+  "/home/sergio/projects/textmaster-root/services/TextMaster.com/config/locales/new.yml"
 end
 
 unless filename
